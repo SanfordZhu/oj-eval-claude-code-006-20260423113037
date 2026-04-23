@@ -287,27 +287,6 @@ void ExitGame() {
  * @note Use std::cout to print the game map, especially when you want to try the advanced task!!!
  */
 void PrintMap() {
-  for (int i = 0; i < rows; ++i) {
-    for (int j = 0; j < columns; ++j) {
-      if (visited[i][j]) {
-        if (is_mine[i][j]) {
-          std::cout << 'X';
-        } else {
-          std::cout << mine_count[i][j];
-        }
-      } else if (marked[i][j]) {
-        if (is_mine[i][j]) {
-          std::cout << '@';
-        } else {
-          std::cout << 'X';
-        }
-      } else {
-        std::cout << '?';
-      }
-    }
-    std::cout << std::endl;
-  }
-
   if (game_state == 1) {
     for (int i = 0; i < rows; ++i) {
       for (int j = 0; j < columns; ++j) {
@@ -321,6 +300,27 @@ void PrintMap() {
           std::cout << '@';
         } else if (marked[i][j]) {
           std::cout << '@';
+        } else {
+          std::cout << '?';
+        }
+      }
+      std::cout << std::endl;
+    }
+  } else {
+    for (int i = 0; i < rows; ++i) {
+      for (int j = 0; j < columns; ++j) {
+        if (visited[i][j]) {
+          if (is_mine[i][j]) {
+            std::cout << 'X';
+          } else {
+            std::cout << mine_count[i][j];
+          }
+        } else if (marked[i][j]) {
+          if (is_mine[i][j]) {
+            std::cout << '@';
+          } else {
+            std::cout << 'X';
+          }
         } else {
           std::cout << '?';
         }
